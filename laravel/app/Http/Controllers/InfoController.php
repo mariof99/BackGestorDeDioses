@@ -138,11 +138,11 @@ class InfoController extends Controller {
             $humano->id_humano = $user->id;
             $humano->save();
 
-            $resp = response()->json(['msg' => 'creado con exito', 'cod' => 0], 200);
+            $resp = response()->json(['msg' => 'creado con exito', 'success' => true], 200);
         }
         catch (\Exception $e) {
 
-            $resp = response()->json(['msg' => 'se ha producido un error', 'cod' => -1], 200);
+            $resp = response()->json(['msg' => 'se ha producido un error', 'success' => false], 200);
         }
 
         return $resp;
@@ -152,35 +152,38 @@ class InfoController extends Controller {
 
         $faker = Faker\Generator::create();
 
-        for ($i = 0; $i < $request->nHumanos; $i++) { 
-            $user = new User;
-            $user->name = $this->faker->name;
-            $user->email = $request->email;
-            $user->password = bcrypt($request->passwd);
-            $user->activo = true;
-            $user->sabiduria = $request->sabiduria;
-            $user->nobleza = $request->nobleza;
-            $user->virtud = $request->virtud;
-            $user->maldad = $request->maldad;
-            $user->audacia = $request->audacia;
+        try {
+            for ($i = 0; $i < $request->nHumanos; $i++) { 
+                $user = new User;
+                $user->name = $faker->name;
+                $user->email = $faker->email;
+                $user->password = bcrypt($faker->passwd);
+                $user->activo = true;
+                $user->sabiduria = random_int(1, 5);
+                $user->nobleza = random_int(1, 5);
+                $user->virtud = random_int(1, 5);
+                $user->maldad = random_int(1, 5);
+                $user->audacia = random_int(1, 5);
 
-            $humano = new Humano;
-            $humano->destino = $request->destino;
-            $humano->id_dios = $id;
+                $humano = new Humano;
+                $humano->destino = random_int(1, 100);
+                $humano->id_dios = $id;
 
-            try {
-                $user->save();
                 
+                $user->save();
+                    
                 $humano->id_humano = $user->id;
                 $humano->save();
-    
-                $resp = response()->json(['msg' => 'creado con exito', 'cod' => 0], 200);
-            }
-            catch (\Exception $e) {
-    
-                $resp = response()->json(['msg' => 'se ha producido un error', 'cod' => -1], 200);
+        
+                
             }
         }
+        catch (\Exception $e) {
+            
+            $resp = response()->json(['msg' => 'se ha producido un error', 'cod' => -1], 200);
+        }
+
+        $resp = response()->json(['msg' => 'creado con exito', 'cod' => 0], 200);
     }
 
     public function updateParamsGenerales($id, Request $request) {

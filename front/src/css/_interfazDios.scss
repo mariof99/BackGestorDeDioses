@@ -1,0 +1,10 @@
+@mixin interfazDios($tema) {
+    .btnIntDios {
+        width: 60vw;
+        height: 7rem;
+        
+        .texto {
+            font-size: 3rem;
+        }
+    }
+}

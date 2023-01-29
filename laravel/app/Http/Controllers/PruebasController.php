@@ -66,18 +66,26 @@ class PruebasController extends Controller {
 
         try {
             $p->save();
+
+            $resp = [
+                'msg' => 'creado con exito',
+                'success' => true
+            ];
         }
         catch (\Exception $e) {
-            $resp = 0;
+            $resp = [
+                'msg' => 'se ha producido un error',
+                'success' => false
+            ];
         }
 
-        return response()->json(['cod' => $resp], 200);
+        return response()->json($resp, 200);
     }
 
 
     public function insertPruebaEleccion(Request $request) {
         $datos = $request->all();
-        $resp = 0;
+        $resp = [];
 
         $id = $this->insertPrueba($datos['destino'], $datos['titulo']);
         $this->insertPruebaOraculo($id, $datos['pregunta']);
@@ -88,15 +96,24 @@ class PruebasController extends Controller {
         $p->respuesta_correcta = $datos['respuestaCorrecta'];
         $p->respuesta_incorrecta = $datos['respuestaIncorrecta'];
         $p->atributo = $datos['atributo'];
+        
         try {
             $p->save();
 
+            $resp = [
+                'msg' => 'creado con exito',
+                'success' => true
+            ];
+
         }
         catch (\Exception $e) {
-            $resp = -1;
+            $resp = [
+                'msg' => 'se ha producido un error',
+                'success' => false
+            ];
         }
 
-        return response()->json(['cod' => $resp], 200);
+        return response()->json($resp, 200);
     }
 
 
@@ -115,12 +132,20 @@ class PruebasController extends Controller {
 
         try {
             $p->save();
+
+            $resp = [
+                'msg' => 'creado con exito',
+                'success' => true
+            ];
         }
         catch (\Exception $e) {
-            $resp = -1;
+            $resp = [
+                'msg' => 'se ha producido un error',
+                'success' => false
+            ];
         }
 
-        return response()->json(['cod' => $resp], 200);
+        return response()->json($resp, 200);
     }
 
     public function insertPruebaValoracion(Request $request) {
@@ -137,12 +162,20 @@ class PruebasController extends Controller {
         $p->atributo = $datos['atributo'];
         try {   
             $p->save();
+
+            $resp = [
+                'msg' => 'creado con exito',
+                'success' => true
+            ];
         }
         catch (\Exception $e) {
-            $resp = -1;
+            $resp = [
+                'msg' => 'se ha producido un error',
+                'success' => false
+            ];
         }
 
-        return response()->json(['cod' => $resp], 200);
+        return response()->json($resp, 200);
     }
 
     // GET PRUEBAS
@@ -205,17 +238,23 @@ class PruebasController extends Controller {
     }
 
     public function asignarPrueba(Request $request) {
-        // try {
+        try {
             DB::table('humano_prueba')->insert([
                 'id_humano' => $request->idHumano, 
                 'id_prueba' => $request->idPrueba,    
             ]);
 
-            $resp = response()->json(['mensaje' => 'prueba asignada con éxito'], 201);
-        // }
-        // catch (\Exception $e) {
-        //     $resp = response()->json(['mensaje' => 'ha ocurrido un error'], 204);
-        // }
+            $resp = response()->json([
+                'mensaje' => 'prueba asignada con éxito',
+                'success' => true
+            ], 201);
+        }
+        catch (\Exception $e) {
+            $resp = response()->json([
+                'mensaje' => 'ha ocurrido un error',
+                'success' => false
+            ], 204);
+        }
 
         return $resp;
     }

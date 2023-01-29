@@ -1,0 +1,20 @@
+@mixin hermes($tema) {
+    .btnEscModal {
+        width: 8rem;
+        position: fixed;
+        bottom: 3rem;
+        right: 3rem;
+    }
+
+    .overflow-x-hidden {
+        overflow-x: hidden !important;
+    }
+
+    .max-height-60 {
+        height: 60vh;
+    }
+
+    .escMensaje {
+        min-width: 45vw;
+    }
+}

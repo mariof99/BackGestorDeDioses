@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear humanos</title>
+
+</head>
+
+<body class="overflow-hidden">
+
+
+    <div id="crearHumanoAlert"></div>
+
+
+    <nav class="py-3 bg-light border-bottom">
+        <a href="../html/interfazDios.html" class="nav-link link-dark ps-2 active " aria-current="page">
+            <img src="../assets/icons/column.png" class="position-relative mb-3 icono">
+        </a>
+        <div class="container d-flex flex-wrap">
+            <ul class="nav me-auto">
+            </ul>
+            <ul class="nav">
+                <li class="nav-item"><a href="../index.html" class="nav-link link-dark px-3">Login & registro</a></li>
+                <li class="nav-item"><a href="../index.html" class="nav-link link-dark px-3">Cerrar sesión</a></li>
+                <li class="nav-item"><a href="../html/perfilDios.html" class="nav-link link-dark bg-primary rounded px-3">perfil</a></li>
+              </ul>
+        </div>
+    </nav>
+    <header class="py-3 border-bottom">
+        <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center">
+            <span class="ms-5">Administra sabiamente tus dominios... DIOS.</span>
+            <!-- <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap" />
+            </svg> -->
+            <span class="fs-4">Sistema Olympus | Crear humanos</span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="max-width">
+        <div class="row">
+            <div class="col-3">
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark start-0 vh-100">
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item border border-white rounded mb-2">
+                          <a href="./crearPruebas.html" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                            Crear pruebas
+                          </a>
+                        </li>
+                        
+                        <li class="nav-item border border-white rounded mb-2">
+                          <a href="./crearHumanos.html" class="nav-link text-white active">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                            Crear humanos
+                          </a>
+                        </li>
+            
+                        <li class="nav-item border border-white rounded mb-2">
+                          <a href="./asignarPruebas.html" class="nav-link text-white" aria-current="page">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                            Asignar pruebas e información
+                          </a>
+                        </li>
+                        
+                        <li class="nav-item border border-white rounded mb-2">
+                          <a href="./hermes.html" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                            Hermes
+                          </a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+            <div class="col-9">
+                
+                <div class="container mt-4">
+
+
+                    <div class="row">
+                        <div class="col p-2 d-flex justify-content-evenly">
+                            <button type="button" class="btn btn-primary botonCrearHumanos mt-4" data-bs-toggle="modal"
+                                data-bs-target="#modalHumanoIndiv">
+                                <img src="../assets/icons/men.png">
+                                <div class="mt-4 texto">Individual</div>
+                            </button>
+                        </div>
+                        <div class="col p-2 d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary botonCrearHumanos mt-4" data-bs-toggle="modal"
+                                data-bs-target="#modalHumanoMultiple">
+                                <img src="../assets/icons/community.png">
+                                <div class="mt-4 texto">Múltiple</div>
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer d-flex align-items-center">
+        <span class="flex-grow-1 ms-4 text-white">Mario Fernández Estévez | 2023</span>
+        <span class="mx-4"><a class="text-white" href="./faqsDios.html">FAQs</a></span>
+        <span class="mx-4"><a class="text-white" href="./quienesSomosDioses.html">¿Quienes somos?</a></span>
+    </footer>
+    <!-- Modal -->
+
+    <div class="modal fade" id="modalHumanoIndiv" tabindex="-1" aria-labelledby="modalHumanoIndivLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modalCrear">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalHumanoIndivLabel">Crear humano</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card mb-3 border-0" id="humanoIndiv">
+                        <div class="card-body">
+
+                            <form id="formHumanoIndiv">
+
+                                <div class="card mb-3 p-4">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="name" class="col-form-label float-start">Nombre:</label>
+                                            <input name="name" type="text" class="form-control mb-3 w-50 float-end inputCaracterisitica">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="email" class="col-form-label float-start">Email:</label>
+                                            <input name="email" type="text" class="form-control mb-3 w-100 float-end inputCaracterisitica">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="passwd" class="col-form-label float-start">Contraseña:</label>
+                                            <input name="passwd" type="text" class="form-control mb-3 w-100 float-end inputCaracterisitica">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="destino" class="col-form-label float-start mt-3">Destino:</label>
+                                            <input name="destino" type="text" class="form-control mt-3 mb-3 w-50 float-end inputCaracterisitica">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="sabiduria" class="col-form-label float-start">Sabiduría:</label>
+                                            <input name="sabiduria" type="text" class="form-control mb-3 w-50 float-end inputCaracterisitica">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="nobleza" class="col-form-label float-start">Nobleza:</label>
+                                            <input name="nobleza" type="text" class="form-control mb-3 w-50 float-end inputCaracterisitica">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="virtud" class="col-form-label float-start">Virtud:</label>
+                                            <input name="virtud" type="text" class="form-control mb-3 w-50 float-end inputCaracterisitica">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="maldad" class="col-form-label float-start">Maldad:</label>
+                                            <input name="maldad" type="text" class="form-control mb-3 w-50 float-end inputCaracterisitica">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="audacia" class="col-form-label float-start">Audacia:</label>
+                                            <input name="audacia" type="text" class="form-control mb-3 w-50 float-end inputCaracterisitica">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary float-end">Aceptar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="modal fade" id="modalHumanoMultiple" tabindex="-1" aria-labelledby="modalPruebaPuntualLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modalCrear">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalPruebaPuntualLabel">Crear humanos en masa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card mb-3 border-0">
+                        <div class="card-body">
+
+                            <form id="formHumanoMultiple">
+
+                                <div class="card mb-3 p-4">
+                                    <div class="row">
+                                        <div class="px-2 col-12">
+                                            <label for="nHumanos" class="col-form-label float-start">Número de humanos:</label>
+                                            <input name="nHumanos" type="text" class="form-control mb-3 w-50 float-end inputCaracterisitica">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary float-end">Aceptar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

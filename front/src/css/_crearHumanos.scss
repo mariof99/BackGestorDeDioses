@@ -1,0 +1,20 @@
+@mixin crearHumanos($tema) {
+    body {
+        div.modalCrear {
+            width: max-content;
+        }
+        
+        button.botonCrearHumanos {
+            width: 22vw;
+            height: 70vh;
+        
+            img {
+                width: 35%;
+            }   
+
+            div.texto {
+                font-size: map.get($tema, "tamLetra");
+            }
+        }
+    }
+}

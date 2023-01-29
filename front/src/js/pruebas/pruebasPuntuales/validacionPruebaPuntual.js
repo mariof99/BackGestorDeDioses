@@ -1,0 +1,30 @@
+import {insertPruebaPuntual} from "../../http/httpProvider";
+import {limpiarForm} from "../pruebasComponentes";
+import {alert} from '../../alerts/alert';
+
+
+const form = document.getElementById('formPruebaPuntual');
+
+form.addEventListener('submit', async(e) => { // ASYNC
+    const data = new FormData(form);
+    const datosPrueba = Object.fromEntries(data.entries());
+
+    console.warn(datosPrueba);
+
+    e.preventDefault();
+
+    try {
+        insertPruebaPuntual(datosPrueba).then(resp => {
+            limpiarForm(form.id);
+            if (resp.success) {
+                alert('Prueba creada con éxito', 'success', 'crearPruebaAlert');
+            }
+            else {
+                alert('Error al crear la prueba', 'danger', 'crearPruebaAlert');
+            }
+        });
+    }
+     catch (err) {
+        alert('Error al crear la prueba', 'danger', 'crearPruebaAlert');
+    }
+});

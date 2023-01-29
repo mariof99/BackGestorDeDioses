@@ -1,0 +1,11 @@
+@mixin interfazHumano($tema) {
+    .btnIntHum {
+        width: 60vw;
+        height: 8rem;
+        
+        .texto {
+            font-size: 3rem;
+        }
+    }
+
+}
