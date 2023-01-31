@@ -210,14 +210,14 @@ class PruebasController extends Controller {
         JOIN pruebas_eleccion on pruebas_oraculo.id = pruebas_eleccion.id JOIN humano_prueba on 
             pruebas_eleccion.id = humano_prueba.id_prueba WHERE humano_prueba.id_humano = ?', [$id]);
 
-        $pruebas['respLibre'] = DB::select('SELECT pruebas.id, pruebas.destino, pruebas.titulo, pruebas_oraculo.pregunta,
-        palabras_clave, porcentaje FROM pruebas JOIN pruebas_oraculo on pruebas.id = pruebas_oraculo.id
+        $pruebas['respLibre'] = DB::select('SELECT pruebas.id, pruebas.destino, pruebas.titulo, pruebas_oraculo.pregunta
+        FROM pruebas JOIN pruebas_oraculo on pruebas.id = pruebas_oraculo.id
         JOIN pruebas_resp_libre on pruebas_oraculo.id = pruebas_resp_libre.id JOIN humano_prueba on 
             pruebas_resp_libre.id = humano_prueba.id_prueba WHERE humano_prueba.id_humano = ?', [$id]);
 
-        foreach ($pruebas['respLibre'] as $prueba) {
-            $prueba->palabras_clave = explode(' ', $prueba->palabras_clave);
-        }
+        // foreach ($pruebas['respLibre'] as $prueba) {
+        //     $prueba->palabras_clave = explode(' ', $prueba->palabras_clave);
+        // }
 
         $pruebas['valoracion'] = DB::select('SELECT pruebas.id, pruebas.destino, pruebas.titulo, pruebas_oraculo.pregunta,
         respuesta, atributo FROM pruebas JOIN pruebas_oraculo on pruebas.id = pruebas_oraculo.id

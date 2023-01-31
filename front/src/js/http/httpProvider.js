@@ -118,6 +118,19 @@ export const fetchPruebas = async() => {
     }
 }
 
+export const fetchPruebasHumanos = async() => {
+    try {
+        const resp = await fetch(urlPruebas + '/getpruebashumano/' + user.id);
+        if (!resp.ok) throw ('Nose pudo realizar la petición');
+        const pruebas = await resp.json();
+
+        return pruebas;
+    }
+    catch (error) {
+        throw error;
+    }
+}
+
 export const fetchHumanos = async() => {
     try {
         const resp = await fetch(urlInfo + '/gethumanos/' + user.id);
@@ -185,7 +198,30 @@ export const crearHumanoMultiple = async(nHumanos) => {
         });
 
     return await resp.json();
+}
 
+export const pasarPruebaPuntual = async(idPrueba) => {
+    const resp = await fetch(urlPruebas
+        + '/pasarPruebaPuntual/' + user.id, {
+            body: JSON.stringify({idPrueba: idPrueba}),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + user.token
+            }
+        });
 
+    return await resp.json();
+}
 
+export const pasarPuebaRespLibre = async(datosPrueba) => {
+    const resp = await fetch(urlPruebas
+        + '/pasarPruebaPuntual/' + user.id, {
+            body: JSON.stringify(datosPrueba),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + user.token
+            }
+        });
+
+    return await resp.json();
 }

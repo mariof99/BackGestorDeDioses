@@ -52,6 +52,7 @@ Route::controller(PruebasController::class)->prefix('pruebas')->group(function()
     Route::post('insertpruebaresplibre', 'insertPruebaRespLibre');
     Route::post('insertpruebavaloracion', 'insertPruebaValoracion');
     Route::get('getpruebas', 'getPruebas');
+    Route::get('getpruebashumano/{id}', 'getPruebasHumano');
     Route::get('gethumanosasig/{id}', 'getHumanosAsig');
     Route::put('updatepruebaeleccion/{id}', 'updatePruebaEleccion');
     Route::put('updatepruebapuntual/{id}', 'updatePruebaPuntual');
